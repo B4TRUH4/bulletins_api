@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  server:
+    restart: unless-stopped
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "fastapi dev src/main.py  --host='0.0.0.0' --port=8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/server
+    env_file:
+      - .env
+
+  db:
+    restart: unless-stopped
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    restart: unless-stopped
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    env_file:
+      - .env
+
+  celery:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    command: celery -A src.celery.app worker -B --loglevel=info
+    env_file:
+      - .env
+    depends_on:
+      - server
+      - redis
