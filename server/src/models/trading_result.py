@@ -1,9 +1,10 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, Date, UniqueConstraint
+from sqlalchemy import DateTime, Date
 from sqlalchemy.orm import mapped_column, Mapped
 
 from .base import Base
+from ..schemas.trading_result import TradingResultDB
 
 
 class TradingResult(Base):
@@ -25,3 +26,6 @@ class TradingResult(Base):
     updated_on: Mapped[datetime] = mapped_column(
         DateTime, onupdate=datetime.now, default=datetime.now
     )
+
+    def to_pydantic_schema(self) -> TradingResultDB:
+        return TradingResultDB(**self.__dict__)

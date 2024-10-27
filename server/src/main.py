@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from redis import asyncio as aioredis
@@ -42,22 +42,3 @@ def create_fastapi_app() -> FastAPI:
 
 
 app = create_fastapi_app()
-
-# async def clear_cache_task():
-#     redis = aioredis.from_url(settings.REDIS_URL)
-#     keys = await redis.keys("fastapi-cache*")
-#     if keys:
-#         await redis.delete(*keys)
-#         print(f"Cleared cache. Deleted {len(keys)} keys.")
-#     else:
-#         print("No cache keys to delete.")
-#
-#
-# async def startup_event():
-#     scheduler = AsyncIOScheduler()
-#     trigger = CronTrigger(hour=16, minute=8, timezone='')
-#     import tzlocal
-#     print(tzlocal.get_localzone())
-#     scheduler.add_job(clear_cache_task, trigger)
-#     scheduler.start()
-#     print("Scheduler started")

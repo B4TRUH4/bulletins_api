@@ -2,8 +2,10 @@ import datetime
 
 from pydantic import BaseModel
 
+from src.schemas.response import BaseResponse
 
-class TradingResultRetrieve(BaseModel):
+
+class TradingResultDB(BaseModel):
     id: int
     exchange_product_id: str | None = None
     exchange_product_name: str | None = None
@@ -15,6 +17,14 @@ class TradingResultRetrieve(BaseModel):
     total: int | None = None
     count: int | None = None
     date: datetime.date
+
+
+class TradingResultListResponse(BaseResponse):
+    payload: list[TradingResultDB]
+
+
+class TradingResultDatesResponse(BaseResponse):
+    payload: list[datetime.date]
 
 
 class TradingResultFilters(BaseModel):
