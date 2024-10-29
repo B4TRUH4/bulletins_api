@@ -1,0 +1,88 @@
+import datetime
+
+TRADING_RESULTS = [
+    {
+        'id': 87856,
+        'exchange_product_id': 'A592AKR060F',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, '
+                                 'ст. Аксарайская II (ст. отправления)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'AKR',
+        'delivery_basis_name': 'ст. Аксарайская II',
+        'delivery_type_id': 'F',
+        'volume': 2700,
+        'total': 163987680,
+        'count': 38,
+        'date': datetime.date(year=2024, month=9, day=24),
+    },
+    {
+        'id': 87855,
+        'exchange_product_id': 'A592ACH005A',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, '
+                                 'Ачинский НПЗ (самовывоз автотранспортом)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'ACH',
+        'delivery_basis_name': 'Ачинский НПЗ',
+        'delivery_type_id': 'A',
+        'volume': 50,
+        'total': 3300000,
+        'count': 2,
+        'date': datetime.date(year=2024, month=9, day=24),
+    },
+    {
+        'id': 87857,
+        'exchange_product_id': 'A592ALL060F',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, '
+                                 'ст. Аллагуват (ст. отправления)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'ALL',
+        'delivery_basis_name': 'ст. Аллагуват',
+        'delivery_type_id': 'F',
+        'volume': 1500,
+        'total': 87713640,
+        'count': 18,
+        'date': datetime.date(year=2024, month=9, day=23),
+    },
+    {
+        'id': 87858,
+        'exchange_product_id': 'A592ANK060F',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, '
+                                 'Ангарск-группа станций (ст. отправления)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'ANK',
+        'delivery_basis_name': 'Ангарск-группа станций',
+        'delivery_type_id': 'F',
+        'volume': 240,
+        'total': 15193080,
+        'count': 4,
+        'date': datetime.date(year=2024, month=9, day=22),
+    },
+    {
+        'id': 87859,
+        'exchange_product_id': 'A592ASR005A',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, '
+                                 'Астрахань БП (самовывоз автотранспортом)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'ASR',
+        'delivery_basis_name': 'Астрахань БП',
+        'delivery_type_id': 'A',
+        'volume': 25,
+        'total': 1562500,
+        'count': 1,
+        'date': datetime.date(year=2024, month=9, day=21),
+    },
+    {
+        'id': 87860,
+        'exchange_product_id': 'A592BIN061F',
+        'exchange_product_name': 'Бензин (АИ-92-К5) по ГОСТ, ст. '
+                                 'Биклянь (ст. отправления)',
+        'oil_id': 'A592',
+        'delivery_basis_id': 'BIN',
+        'delivery_basis_name': 'ст. Биклянь',
+        'delivery_type_id': 'F',
+        'volume': 427,
+        'total': 24424400,
+        'count': 5,
+        'date': datetime.date(year=2024, month=9, day=20),
+    },
+]
