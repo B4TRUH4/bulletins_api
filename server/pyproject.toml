@@ -18,6 +18,8 @@ ruff = "^0.6.9"
 pytest = "^8.3.3"
 pytest-asyncio = "^0.24.0"
 requests = "^2.32.3"
+pytest-mock = "^3.14.0"
+pytest-dotenv = "^0.5.2"
 
 [build-system]
 requires = ["poetry-core"]
@@ -28,8 +30,10 @@ line-length = 80
 exclude = ["alembic/*"]
 target-version = "py311"
 
+[tool.ruff.format]
+quote-style = "single"
+
 [tool.ruff.lint]
-select = ["ALL"]
 extend-select = ["W", "E"]
 preview = true
 ignore = [
@@ -57,9 +61,6 @@ ignore = [
     "S101", # assert
     "S608", # hardcoded-sql-expression
 ]
-
-[tool.ruff.format]
-quote-style = "single"
 
 [tool.ruff.lint.pylint]
 max-args = 7

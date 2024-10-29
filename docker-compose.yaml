@@ -48,6 +48,7 @@ services:
       - .env
 
   celery:
+    restart: unless-stopped
     build:
       context: ./server
       dockerfile: ./Dockerfile
